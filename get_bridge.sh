@@ -94,7 +94,10 @@ elif [ "$(uname)" = "MINGW64_NT-6.1" ]; then
     IP=${IP}:
 else
     # (assume) Linux - docker running as native host - use localhost
-    IP="127.0.0.1"
+    IP="`ip route get 8.8.8.8 | awk '{print $NF; exit}'`"
+    if [ "${OVERRIDE_IP}X" != "X" ]; then
+      IP=${OVERRIDE_IP}
+    fi
     BASE_IP=${IP}
     echo "IP Address:" ${IP}
     IP=${IP}:
