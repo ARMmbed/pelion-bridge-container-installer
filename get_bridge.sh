@@ -94,10 +94,7 @@ elif [ "$(uname)" = "MINGW64_NT-6.1" ]; then
     IP=${IP}:
 else
     # (assume) Linux - docker running as native host - use localhost
-    IP="`ip route get 8.8.8.8 | awk '{print $NF; exit}'`"
-    if [ "${OVERRIDE_IP}X" != "X" ]; then
-      IP=${OVERRIDE_IP}
-    fi
+    IP="127.0.0.1"
     BASE_IP=${IP}
     echo "IP Address:" ${IP}
     IP=${IP}:
@@ -193,7 +190,10 @@ fi
 # 
 # Docker Run port config
 #
-DOCKER_PORT_CONFIG="-p ${IP}${WEBHOOK_PORT}:${WEBHOOK_PORT} -p ${IP}${BRIDGE_SSH_PORT}:${HOST_SSH_PORT} -p ${IP}${CONFIG_PAGE_PORT}:${CONFIG_PAGE_PORT} -p ${IP}${WEBSOCKET_PORT}:${WEBSOCKET_PORT} ${MQTT_OPTIONS}"
+HOLD_IP=${IP}
+IP=":"
+DOCKER_PORT_CONFIG="-p ${IP}${WEBHOOK_PORT}:${WEBHOOK_PORT} -p ${IP}${BRIDGE_SSH_PORT}:${HOST_SSH_PORT} -p ${IP}${CONFIG_PAGE_PORT}:${CONFIG_PAGE_PORT} -p ${IP}${WEBSOCKET_PORT}:${WEBSOCKET_PORT} ${MQTT_OPTIONS} ${LOCAL_DOCKER_PORT_CONFIG}"
+IP=${HOLD_IP}
 
 #
 # Import and Run
