@@ -64,7 +64,7 @@ fi
 #
 # Options
 #
-SCRIPT_OPTIONS="[iotf | iothub | awsiot | google | mqtt | mqtt-getstarted | sample]"
+SCRIPT_OPTIONS="[iotf | iothub | awsiot | google | mqtt | mqtt-getstarted | treasuredata | sample]"
 
 #
 # Environment Selection
