@@ -107,7 +107,7 @@ if [ "${TYPE}X" = "X" ]; then
     echo "Usage: $0 ${SCRIPT_OPTIONS}"
     exit 1
 fi
-if [ "${TYPE}X" != "iotfX" ] && [ "${TYPE}X" != "awsiotX" ] && [ "${TYPE}X" != "iothubX" ] && [ "${TYPE}X" != "googleX" ] && [ "${TYPE}X" != "mqttX" ] && [ "${TYPE}X" != "mqtt-getstartedX" ] && [ "${TYPE}X" != "sampleX" ]
+if [ "${TYPE}X" != "iotfX" ] && [ "${TYPE}X" != "awsiotX" ] && [ "${TYPE}X" != "iothubX" ] && [ "${TYPE}X" != "googleX" ] && [ "${TYPE}X" != "mqttX" ] && [ "${TYPE}X" != "mqtt-getstartedX" ] && [ "${TYPE}X" != "sampleX" ] && [ "${TYPE}X" != "treasuredataX" ]
 then
     echo "Invalid option supplied."
     echo "Usage: $0 ${SCRIPT_OPTIONS}"
